@@ -5,17 +5,215 @@
 <title>flex example</title>
 <style type='text/css'>
 	.flex{
-		display: -webkit-box;
-		height:2rem;
+		display: -webkit-box;/* OLD: Safari,  iOS, Android browser, older WebKit browsers.  */
+		display: -webkit-flex;/* NEW: Chrome 21–28, Safari 6.1+ */
+		line-height:2rem;
+		text-align:center;
+		color:#fff;
+		margin-bottom:1rem;
 	}
+	.flex-title{
+		line-height:2rem;
+		border:solid 1px black;
+		border-radius: 3px;
+		text-align:center;
+		margin-bottom:1rem;
+	}
+	.box-flex-1{
+		-webkit-box-flex:1;
+		-webkit-flex:1;
+	}
+	.box-flex-2{
+		-webkit-box-flex:2;
+		-webkit-flex:2;
+	}
+	.box-flex-3{
+		-webkit-box-flex:3;
+		-webkit-flex:3;
+	}
+	.bg1{
+		background-color: #FF4A00;
+	}
+	.bg2{
+		background-color:#31A500;
+	}
+	.bg3{
+		background:#C086FE;
+	}
+
 </style>
 <body>
 
-
+<div class='flex-title'>1. display: -webkit-box;</div>
 <div class='flex'>
-<div style='-webkit-box-flex:1;background:red;'>&nbsp;</div>
-<div style='-webkit-box-flex:1;background:blue;'>&nbsp;</div>
-<div style='-webkit-box-flex:1;background:yellow;'>&nbsp;</div>
+<div class='box-flex-1 bg1'>flex:1</div>
+<div class='box-flex-1 bg2'>flex:1</div>
+<div class='box-flex-1 bg3'>flex:1</div>
+</div>
+<div class='flex'>
+<div class='bg1' style='width:10rem;margin-right:2rem;'>width:6rem;margin-right:2rem;</div>
+<div class='box-flex-1 bg2'>flex:1</div>
+<div class='box-flex-1 bg3'>flex:1</div>
+</div>
+
+<div class='flex-title'>2. flex-direction:[row | row-reverse | column | column-reverse]</div>
+
+<div class='flex' style='-webkit-flex-direction:row;'>
+	<div class='box-flex-1 bg1'>flex:1</div>
+	<div class='box-flex-2 bg2'>flex:2</div>
+	<div class='box-flex-3 bg3'>flex:3</div>
+</div>
+<div class='flex' style='-webkit-flex-direction:row-reverse;'>
+	<div class='box-flex-1 bg1'>flex:1</div>
+	<div class='box-flex-2 bg2'>flex:2</div>
+	<div class='box-flex-3 bg3'>flex:3</div>
+</div>
+<div class='flex' style='-webkit-flex-direction:column;'>
+	<div class='box-flex-1 bg1'>flex:1</div>
+	<div class='box-flex-2 bg2'>flex:2</div>
+	<div class='box-flex-3 bg3'>flex:3</div>
+</div>
+<div class='flex' style='-webkit-flex-direction:column-reverse;'>
+	<div class='box-flex-1 bg1'>flex:1</div>
+	<div class='box-flex-2 bg2'>flex:2</div>
+	<div class='box-flex-3 bg3'>flex:3</div>
+</div>
+
+<div class='flex-title'>3. flex-wrap:[nowwrap | wrap | wrap-reverse]</div>
+<div class='flex' style = '-webkit-flex-wrap:nowwrap; width:400px;'>
+	<div class='bg1' style='width:100px;'>width:100px;</div>
+	<div class='bg2' style='width:200px;'>width:200px;</div>
+	<div class='bg3' style='width:300px;'>width:300px;</div>
+</div>
+<div class='flex' style = '-webkit-flex-wrap:wrap; width:400px;'>
+	<div class='bg1' style='width:100px;'>width:100px;</div>
+	<div class='bg2' style='width:200px;'>width:200px;</div>
+	<div class='bg3' style='width:300px;'>width:300px;</div>
+</div>
+<div class='flex' style = '-webkit-flex-wrap:wrap-reverse; width:400px;'>
+	<div class='bg1' style='width:100px;'>width:100px;</div>
+	<div class='bg2' style='width:200px;'>width:200px;</div>
+	<div class='bg3' style='width:300px;'>width:300px;</div>
+</div>
+
+<div class='flex-title'>4. flex-flow:[flex-direction] [flex-wrap];//flex-flow是flex-direction和flex-wrap的缩写版</div>
+
+<div class='flex-title'>5. just-content:[flex-start | flex-end | center | space-between | space-around}]</div>
+<div class='flex' style='-webkit-box-pack: flex-start;-webkit-justify-content:flex-start;'>
+	<div class='bg1'>block1</div>
+	<div class='bg2'>block2</div>
+	<div class='bg3'>block3</div>
+</div>
+<div class='flex' style='-webkit-box-pack: center;-webkit-justify-content:center;'>
+	<div class='bg1'>block1</div>
+	<div class='bg2'>block2</div>
+	<div class='bg3'>block3</div>
+</div>
+<div class='flex' style='-webkit-box-pack: flex-end;-webkit-justify-content:flex-end;'>
+	<div class='bg1'>block1</div>
+	<div class='bg2'>block2</div>
+	<div class='bg3'>block3</div>
+</div>
+<div class='flex' style='-webkit-box-pack: space-between;-webkit-justify-content:space-between;'>
+	<div class='bg1'>block1</div>
+	<div class='bg2'>block2</div>
+	<div class='bg3'>block3</div>
+</div>
+<div class='flex' style='-webkit-box-pack: space-around;-webkit-justify-content:space-around;'>
+	<div class='bg1'>block1</div>
+	<div class='bg2'>block2</div>
+	<div class='bg3'>block3</div>
+</div>
+<div class='flex-title'>6. align-self:[auto | flex-start | flex-end | center | baseline | stretch]</div>
+<div class=' flex' style = 'height:4rem;'>
+	<div class='bg1' style ='align-self:auto;margin-left:5px;'>auto</div>
+	<div class='bg2' style ='align-self:flex-start;margin-left:5px;'>flex-start</div>
+	<div class='bg3' style ='align-self:flex-end;margin-left:5px;'>flex-end</div>
+	<div class='bg1' style ='align-self:center;margin-left:5px;'>center</div>
+	<div class='bg2' style ='align-self:baseline;margin-left:5px;'>baseline</div>
+	<div class='bg3' style ='align-self:stretch;margin-left:5px;'>stretch</div>
+</div>
+
+<div class='flex-title'>6. align-items:[auto | flex-start | flex-end | center | baseline | stretch]</div>
+<div class=' flex' style = 'height:4rem;align-items:auto;background:black;'>
+	<div class='bg1' style ='width:100px;'>width:100px</div>
+	<div class='bg2' style ='width:100px;'>width:100px</div>
+	<div class='bg3' style ='width:100px;'>width:100px</div>
+</div>
+<div class=' flex' style = 'height:4rem;align-items:flex-start;background:black;'>
+	<div class='bg1' style ='width:100px;'>width:100px</div>
+	<div class='bg2' style ='width:100px;'>width:100px</div>
+	<div class='bg3' style ='width:100px;'>width:100px</div>
+</div>
+
+<div class=' flex' style = 'height:4rem;align-items:flex-flex-end;background:black;'>
+	<div class='bg1' style ='width:100px;'>width:100px</div>
+	<div class='bg2' style ='width:100px;'>width:100px</div>
+	<div class='bg3' style ='width:100px;'>width:100px</div>
+</div>
+<div class=' flex' style = 'height:4rem;-webkit-box-align:center;align-items:center;background:black;'>
+	<div class='bg1' style ='width:100px;'>width:100px</div>
+	<div class='bg2' style ='width:100px;'>width:100px</div>
+	<div class='bg3' style ='width:100px;'>width:100px</div>
+</div>
+<div class=' flex' style = 'height:4rem;align-items:baseline;background:black;'>
+	<div class='bg1' style ='width:100px;'>width:100px</div>
+	<div class='bg2' style ='width:100px;'>width:100px</div>
+	<div class='bg3' style ='width:100px;'>width:100px</div>
+</div>
+<div class=' flex' style = 'height:4rem;align-items:stretch;background:black;'>
+	<div class='bg1' style ='width:100px;'>width:100px</div>
+	<div class='bg2' style ='width:100px;'>width:100px</div>
+	<div class='bg3' style ='width:100px;'>width:100px</div>
+</div>
+<div class='flex-title'>7. align-content:[auto | flex-start | flex-end | center | baseline | stretch]</div>
+<div class='flex' style='align-content:auto;height:10rem;flex-wrap:wrap;background:black;'>
+	<div class='bg1' style ='width:30%;'>width:100px</div>
+	<div class='bg2' style ='width:30%;'>width:100px</div>
+	<div class='bg3' style ='width:30%;'>width:100px</div>
+	<div class='bg1' style ='width:30%;'>width:100px</div>
+	<div class='bg2' style ='width:30%;'>width:100px</div>
+	<div class='bg3' style ='width:30%;'>width:100px</div>
+</div>
+<div class='flex' style='align-content:flex-start;height:10rem;flex-wrap:wrap;background:black;'>
+	<div class='bg1' style ='width:30%;'>width:100px</div>
+	<div class='bg2' style ='width:30%;'>width:100px</div>
+	<div class='bg3' style ='width:30%;'>width:100px</div>
+	<div class='bg1' style ='width:30%;'>width:100px</div>
+	<div class='bg2' style ='width:30%;'>width:100px</div>
+	<div class='bg3' style ='width:30%;'>width:100px</div>
+</div>
+<div class='flex' style='align-content:flex-end;height:10rem;flex-wrap:wrap;background:black;'>
+	<div class='bg1' style ='width:30%;'>width:100px</div>
+	<div class='bg2' style ='width:30%;'>width:100px</div>
+	<div class='bg3' style ='width:30%;'>width:100px</div>
+	<div class='bg1' style ='width:30%;'>width:100px</div>
+	<div class='bg2' style ='width:30%;'>width:100px</div>
+	<div class='bg3' style ='width:30%;'>width:100px</div>
+</div>
+<div class='flex' style='align-content:center;height:10rem;flex-wrap:wrap;background:black;'>
+	<div class='bg1' style ='width:30%;'>width:100px</div>
+	<div class='bg2' style ='width:30%;'>width:100px</div>
+	<div class='bg3' style ='width:30%;'>width:100px</div>
+	<div class='bg1' style ='width:30%;'>width:100px</div>
+	<div class='bg2' style ='width:30%;'>width:100px</div>
+	<div class='bg3' style ='width:30%;'>width:100px</div>
+</div>
+<div class='flex' style='align-content:baseline;height:10rem;flex-wrap:wrap;background:black;'>
+	<div class='bg1' style ='width:30%;'>width:100px</div>
+	<div class='bg2' style ='width:30%;'>width:100px</div>
+	<div class='bg3' style ='width:30%;'>width:100px</div>
+	<div class='bg1' style ='width:30%;'>width:100px</div>
+	<div class='bg2' style ='width:30%;'>width:100px</div>
+	<div class='bg3' style ='width:30%;'>width:100px</div>
+</div>
+<div class='flex' style='align-content:stretch;height:10rem;flex-wrap:wrap;background:black;'>
+	<div class='bg1' style ='width:30%;'>width:100px</div>
+	<div class='bg2' style ='width:30%;'>width:100px</div>
+	<div class='bg3' style ='width:30%;'>width:100px</div>
+	<div class='bg1' style ='width:30%;'>width:100px</div>
+	<div class='bg2' style ='width:30%;'>width:100px</div>
+	<div class='bg3' style ='width:30%;'>width:100px</div>
 </div>
 
 </body>
